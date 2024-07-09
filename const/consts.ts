@@ -1,0 +1,1 @@
+export const notEqualMessage = "Arrays are not equal"
