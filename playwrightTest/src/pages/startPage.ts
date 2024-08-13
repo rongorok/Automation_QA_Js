@@ -1,6 +1,6 @@
 import { Page } from "@playwright/test";
 import { BasePage } from "./basePage";
-import { BASE_URL, errorMessageLocator, logInButton, logInButtonElemLocator, logInButtonText, userNameInputLocator } from "../const/common";
+import { BASE_URL, errorMessageLocator, logInButton, logInButtonElemLocator, logInButtonText, timeOut10, userNameInputLocator } from "../const/common";
 
 export class StartPage extends BasePage{
     constructor(page:Page) {
@@ -14,14 +14,13 @@ export class StartPage extends BasePage{
       }
 
       public async logIn(query: string){
-        await this.page.click(logInButton, {timeout: 10000}); 
-
-        await this.page.click(logInButtonText, {timeout: 10000});
+        await this.page.click(logInButton, timeOut10); 
+        await this.page.click(logInButtonText, timeOut10);
 
         const usernameInput = await this.page.locator(userNameInputLocator); 
-        await usernameInput.fill(query, {timeout: 10000});
+        await usernameInput.fill(query, timeOut10);
         const loginButtonElem = await this.page.locator(logInButtonElemLocator);
-        await loginButtonElem.click({timeout: 10000}) 
+        await loginButtonElem.click(timeOut10) 
     }
 
       public async getErrorMessage(){

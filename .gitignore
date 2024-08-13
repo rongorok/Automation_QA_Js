@@ -4,3 +4,7 @@ tsconfig.json
 package-lock.json
 .mocharc.json
 jest.config.js
+lesson
+history
+cypress
+work

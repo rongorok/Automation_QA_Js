@@ -19,13 +19,11 @@ export class VideoPage extends BasePage{
       };
 
       public async getPopularTopics(query: string){
-        await this.page.getByText(query).click();
-                     
+        await this.page.getByText(query).click();          
       };
 
       public async getVideoOnPage (locator: string){
         await this.page.locator(locator).all();
-      
       };
 
       public async searchVideo (query: string){

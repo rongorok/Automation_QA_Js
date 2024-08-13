@@ -18,7 +18,6 @@ test.describe("UI tests on start page", ()=>{
 
     const titleText = await startPage.getTitleText();
     expect(titleText).toContain('Дзен');
-
   });
 
   test("Navigate in menu",async ()=>{
@@ -30,8 +29,11 @@ test.describe("UI tests on start page", ()=>{
   });
 
   test('should search for "Playwright" and check results', async () => {
-    await startPage.navigationBar.navigateInMenuByText("Ролики");
+    await startPage.navigationBar.navigateInMenuByText("Видеоигры");
     await startPage.search('Playwright');
+
+    const titleText = await startPage.getTitleText();
+    expect(titleText).toContain("Playwright");
   });
 
   test('should try to logIn with incorect info and push error', async ()=>{
